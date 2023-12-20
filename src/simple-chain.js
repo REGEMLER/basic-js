@@ -12,33 +12,33 @@ const chainMaker = {
 
   addLink( value ) {
     value !== undefined ? this.chain.push(String(value)) : this.chain.push('( )');  
-		return this;
+    return this;
   },
   
   removeLink( position ) {
-		if (Number.isInteger(position) && (this.chain[position - 1] !== undefined)) {
-			this.chain.splice(position - 1, 1);
-		} else {
-			this.chain = [];
-			throw new Error("You can't remove incorrect link!");
-		}
-		return this;
+    if (Number.isInteger(position) && (this.chain[position - 1] !== undefined)) {
+    this.chain.splice(position - 1, 1);
+    } else {
+    this.chain = [];
+    throw new Error("You can't remove incorrect link!");
+    } 
+    return this;
   },
 
   reverseChain() {
-		this.chain.reverse();
-		return this;
+    this.chain.reverse();
+    return this;
   },
-  
+
   finishChain() {
-		let result = '';
-		if (this.chain.length === 0) return result;
+    let result = '';
+    if (this.chain.length === 0) return result;
     result = `( ${this.chain[0]} )`;
-		for (let i = 1; i < this.chain.length; i++) {
-			result = result + `~~( ${this.chain[i]} )`;
-		}
-		this.chain = [];
-		return result;
+    for (let i = 1; i < this.chain.length; i++) {
+    result = result + `~~( ${this.chain[i]} )`;
+    }
+    this.chain = [];
+    return result;
   }
 };
 
