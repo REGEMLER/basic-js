@@ -9,14 +9,12 @@ const chainMaker = {
   getLength() {
     return this.chain.length;
   },
+
   addLink( value ) {
-		if (value !== undefined) {
-      this.chain.push(String(value));
-    } else {
-      this.chain.push('( )');
-    }
+    value !== undefined ? this.chain.push(String(value)) : this.chain.push('( )');  
 		return this;
   },
+  
   removeLink( position ) {
 		if (Number.isInteger(position) && (this.chain[position - 1] !== undefined)) {
 			this.chain.splice(position - 1, 1);
@@ -26,10 +24,12 @@ const chainMaker = {
 		}
 		return this;
   },
+
   reverseChain() {
 		this.chain.reverse();
 		return this;
   },
+  
   finishChain() {
 		let result = '';
 		if (this.chain.length === 0) return result;
